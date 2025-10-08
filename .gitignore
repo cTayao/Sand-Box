@@ -1,0 +1,44 @@
+# =====================
+# Java & LWJGL Project
+# =====================
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ / VS Code / Eclipse / IntelliJ cache files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code workspace storage
+.history/
+.project/
+.classpath/
+.settings/
+
+# macOS and Windows junk
+.DS_Store
+Thumbs.db
+
+# Java build directories
+bin/
+out/
+target/
+
+# LWJGL library files
+lib/*
+!lib/.gitkeep
+
+
+# (Optional) if you downloaded LWJGL zip
+lwjgl.zip
+
+# Backup / temporary files
+*.tmp
+*.bak
+*.swp
