@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 
 public class Window {
-    private int width, height;
+private int width, height;
     private String title;
 
     private long glfwWindow;
@@ -43,10 +43,12 @@ public class Window {
         switch(newScene){
             case 0:
                 currentScene = new LevelEditorScene();
+                currentScene.init();
                 break;
 
             case 1:
                 currentScene = new LevelScene();
+                currentScene.init();
                 break;
 
             default:
@@ -134,6 +136,7 @@ public class Window {
         
 
         while (!glfwWindowShouldClose(glfwWindow)){
+            //System.out.println("raw time: " + Time.getTime());
 
             //poll events; key, mouse events etc.
             glfwPollEvents();
@@ -151,10 +154,11 @@ public class Window {
             endTime = Time.getTime();
             dt = endTime - startTime;
             startTime = endTime;
-
+            
         }
 
     }
+
 
     
 }
