@@ -161,6 +161,9 @@ private int width, height;
 
     }
 
+    public static Scene getScene(){
+        return get().currentScene;
+    }
 
     
 }

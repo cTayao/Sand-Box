@@ -3,8 +3,11 @@ package jade;
 import java.util.ArrayList;
 import java.util.List;
 
+import renderer.Renderer;
+
 public abstract class Scene {
 
+    protected Renderer renderer = new Renderer();
     protected Camera camera;
     protected List<GameObject> gameObjects = new ArrayList<>();
     private boolean isRunning = false;
@@ -21,6 +24,7 @@ public abstract class Scene {
     public void start(){
         for (GameObject gO : gameObjects){
             gO.start();
+            this.renderer.add(gO);
         }
         isRunning = true;
 
@@ -32,8 +36,13 @@ public abstract class Scene {
 
         if(isRunning){
             gO.start();
+            this.renderer.add(gO);
         }
 
+    }
+
+    public Camera camera(){
+        return this.camera;
     }
 
 

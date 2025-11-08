@@ -6,10 +6,18 @@ import java.util.List;
 public class GameObject {
 
     private String name;
-    private List<Component> components = new ArrayList<>();
+    private List<Component> components;
+    public Transform transform;
 
     public GameObject(String f_name){
         this.name = f_name;
+        this.components = new ArrayList<>();
+
+    }
+    public GameObject(String f_name, Transform f_transform){
+        this.name = f_name;
+        this.transform = f_transform;
+        this.components = new ArrayList<>();
     }
 
 
@@ -27,6 +35,7 @@ public class GameObject {
             }
         }
 
+        //return null if no component found
         return null;
     }
 

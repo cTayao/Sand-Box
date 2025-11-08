@@ -1,18 +1,26 @@
 package components;
 
+import org.joml.Vector4f;
+
 import jade.Component;
 
 public class SpriteRenderer extends Component {
-    boolean running = false;
+
+    Vector4f color;
+
+    public SpriteRenderer(Vector4f f_color){
+        this.color = f_color; 
+    }
 
     public void start(){
-        System.out.println("Sprite Renderer Starting");
+
     }
     
     public void update(float dt){
-        if(!running){
-            System.out.println("Updating Sprite Renderer");
-            running = true;
-        }
+
+    }
+
+    public Vector4f getColor(){
+        return this.color;
     }
 }

@@ -2,13 +2,15 @@ package jade;
 
 import java.awt.event.KeyEvent;
 
+import org.joml.Vector2f;
+
 public class LevelScene extends Scene {
     private boolean changingScene = false;
     private float changeDuration = 2.0f;
 
     @Override
     public void init(){
-
+        this.camera = new Camera(new Vector2f());
     }
 
 

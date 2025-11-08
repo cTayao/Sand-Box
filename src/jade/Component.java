@@ -1,7 +1,7 @@
 package jade;
 
 public abstract class Component {
-    GameObject gameObject = null;
+    public GameObject gameObject = null;
 
     public void start(){
 
