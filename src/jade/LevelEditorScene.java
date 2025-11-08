@@ -1,12 +1,15 @@
 package jade;
 
 import java.awt.event.KeyEvent;
+import java.awt.font.FontRenderContext;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 
+import components.FontRenderer;
+import components.SpriteRenderer;
 import renderer.Shader;
 import renderer.Texture;
 import util.Time;
@@ -44,10 +47,19 @@ public class LevelEditorScene extends Scene {
 
     private Texture testTexture;
 
+    GameObject testObj;
+
+
     
 
     @Override
     public void init(){
+        System.out.println("Creating Test Object");
+        this.testObj = new GameObject("Test Object");
+        this.testObj.addComponent(new SpriteRenderer());
+        this.testObj.addComponent(new FontRenderer());
+        this.addGameObjectToScene(this.testObj);
+
         this.camera = new Camera(new Vector2f());
         defaultShader = new Shader("assets\\shaders\\default.glsl");
         defaultShader.compile();
@@ -164,6 +176,12 @@ public class LevelEditorScene extends Scene {
         else if(changingScene){
             Window.changeScene(1);
         }  
+
+        
+
+        for (GameObject gO : this.gameObjects){
+            gO.update(dt);
+        }
         
     }
 
