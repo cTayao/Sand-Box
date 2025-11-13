@@ -5,7 +5,7 @@ import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
-import util.Time;
+//import util.Time;
 
 import java.nio.*;
 
@@ -131,8 +131,8 @@ private int width, height;
     }
     
     public void loop(){
-        float startTime = Time.getTime();
-        float endTime = Time.getTime();
+        float startTime = (float)glfwGetTime();
+        float endTime = (float)glfwGetTime();
         float dt = -1f;
 
         
@@ -153,7 +153,7 @@ private int width, height;
 
             glfwSwapBuffers(glfwWindow);
             
-            endTime = Time.getTime();
+            endTime = (float)glfwGetTime();
             dt = endTime - startTime;
             startTime = endTime;
             
