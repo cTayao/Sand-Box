@@ -9,6 +9,20 @@ import java.util.List;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
+import static org.lwjgl.opengl.GL11.GL_FLOAT;
+import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
+import static org.lwjgl.opengl.GL11.GL_UNSIGNED_INT;
+import static org.lwjgl.opengl.GL11.glDrawElements;
+import static org.lwjgl.opengl.GL13.GL_TEXTURE0;
+import static org.lwjgl.opengl.GL13.glActiveTexture;
+import static org.lwjgl.opengl.GL15.GL_ARRAY_BUFFER;
+import static org.lwjgl.opengl.GL15.GL_DYNAMIC_DRAW;
+import static org.lwjgl.opengl.GL15.GL_ELEMENT_ARRAY_BUFFER;
+import static org.lwjgl.opengl.GL15.GL_STATIC_DRAW;
+import static org.lwjgl.opengl.GL15.glBindBuffer;
+import static org.lwjgl.opengl.GL15.glBufferData;
+import static org.lwjgl.opengl.GL15.glBufferSubData;
+import static org.lwjgl.opengl.GL15.glGenBuffers;
 import static org.lwjgl.opengl.GL20.*;
 
 import components.SpriteRenderer;
@@ -174,9 +188,16 @@ public class RenderBatch {
 
     }
 
+    public void updateVertices() {
+        for (int i = 0; i < numSprites; i++) {
+            localVertexProperties(i); // re-bake vertices based on current transform
+        }
+    }
+
 
     public void render(){
         // for now rebuffer every frame?
+        updateVertices();
         glBindBuffer(GL_ARRAY_BUFFER, vboID);
         glBufferSubData(GL_ARRAY_BUFFER, 0, vertices);
 
@@ -246,6 +267,7 @@ public class RenderBatch {
     public boolean hasTexture(Texture tex){
         return this.textures.contains(tex);
     }
+
 
 }
 

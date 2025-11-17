@@ -10,6 +10,8 @@ public abstract class Scene {
     protected Renderer renderer = new Renderer();
     protected Camera camera;
     protected List<GameObject> gameObjects = new ArrayList<>();
+    protected List<Particle> particles = new ArrayList<>();
+
     private boolean isRunning = false;
 
 

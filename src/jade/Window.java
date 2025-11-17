@@ -32,9 +32,9 @@ private int width, height;
         this.width = 960;
         this.height = 540;
         this.title = "Sand Box";
-        r = 1;
-        g = 1;
-        b = 1;
+        r = 0.8f;
+        g = 0.8f;
+        b = 0.8f;
         a = 1;
 
     }
@@ -163,6 +163,28 @@ private int width, height;
 
     public static Scene getScene(){
         return get().currentScene;
+    }
+
+    public static int getWidth(){
+        int[] w = new int[1];
+        int[] h = new int[1];
+
+        glfwGetWindowSize(Window.get().glfwWindow, w, h);
+        Window.get().width = w[0];
+        Window.get().height = h[0];
+
+        return Window.get().width;
+    }
+
+    public static int getHeight(){
+        int[] w = new int[1];
+        int[] h = new int[1];
+
+        glfwGetWindowSize(Window.get().glfwWindow, w, h);
+        Window.get().width = w[0];
+        Window.get().height = h[0];
+
+        return Window.get().height;
     }
 
     
